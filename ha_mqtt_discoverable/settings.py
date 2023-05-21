@@ -41,6 +41,7 @@ def load_mqtt_settings(path: str = None, cli=None) -> dict:
     settings["device_id"] = cli.device_id
     settings["device_name"] = cli.device_name
     settings["mqtt_password"] = cli.mqtt_password
+    settings["mqtt_port"] = cli.mqtt_port
     settings["mqtt_prefix"] = cli.mqtt_prefix
     settings["mqtt_server"] = cli.mqtt_server
     settings["mqtt_user"] = cli.mqtt_user
@@ -71,6 +72,8 @@ def load_mqtt_settings(path: str = None, cli=None) -> dict:
         raise RuntimeError("No device_id was specified")
     if "device_name" not in settings:
         raise RuntimeError("No device_name was specified")
+    if "mqtt_port" not in settings:
+        raise RuntimeError("You need to specify an mqtt port")
     if "mqtt_prefix" not in settings:
         raise RuntimeError("You need to specify an mqtt prefix")
     if "mqtt_user" not in settings:
@@ -115,6 +118,8 @@ def sensor_delete_settings(path: str = None, cli=None) -> dict:
         raise RuntimeError("No device_id was specified")
     if "device_name" not in settings:
         raise RuntimeError("No device_name was specified")
+    if "mqtt_port" not in settings:
+        raise RuntimeError("You need to specify an mqtt port")
     if "mqtt_prefix" not in settings:
         raise RuntimeError("You need to specify an mqtt prefix")
     if "mqtt_user" not in settings:

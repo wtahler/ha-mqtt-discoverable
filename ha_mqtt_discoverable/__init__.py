@@ -545,6 +545,7 @@ class Settings(GenericModel, Generic[EntityType]):
         tls_certfile: Optional[str] = None
         tls_ca_cert: Optional[str] = None
 
+        mqtt_port: int = 1883
         discovery_prefix: str = "homeassistant"
         """The root of the topic tree where HA is listening for messages"""
         state_prefix: str = "hmd"
